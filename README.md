@@ -4,10 +4,12 @@
 
 ## 実行例
 
-リポジトリを取得してそのディレクトリに移動し、次のコマンドを実行します。Python 3.10〜3.14 の標準ライブラリで動きます。追加パッケージのインストールは不要です。
+次の例の行頭にある `$` はシェルのプロンプトです。入力するのはその後ろの部分です。Python 3.10〜3.14 の標準ライブラリで動きます。追加パッケージのインストールは不要です。
 
 ```bash
-printf '40\n41\n45\n47\n' | ./seqgaps
+$ git clone https://github.com/mokuren2095/robosys2026.git
+$ cd robosys2026
+$ printf '40\n41\n45\n47\n' | ./seqgaps
 ```
 
 ```text
@@ -18,7 +20,7 @@ printf '40\n41\n45\n47\n' | ./seqgaps
 各行は「最初の欠番」「最後の欠番」「欠けた件数」のタブ区切りです。上の例では 42〜44 の 3 件と、46 の 1 件が欠けています。番号を 1 行に 1 件ずつ保存したファイルなら、次のように結果を保存できます。
 
 ```bash
-./seqgaps < received_ids.txt > gaps.tsv
+$ ./seqgaps < received_ids.txt > gaps.tsv
 ```
 
 ## 入力と終了ステータス
@@ -31,7 +33,7 @@ printf '40\n41\n45\n47\n' | ./seqgaps
 ## テスト
 
 ```bash
-./test.bash
+$ ./test.bash
 ```
 
 Bash でコマンドを実行し、欠番の範囲、件数、空入力や順序違反時の出力と終了ステータスを確認します。GitHub Actions は push と pull request を契機に、Ubuntu 24.04 と Python 3.10〜3.14 の各バージョンで同じテストを実行する設定です。
